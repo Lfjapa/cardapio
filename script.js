@@ -941,14 +941,14 @@ function showRecipeModal(recipeId) {
             
             <div class="portions-section">
                 <div class="portion-card">
-                    <h4>👨 Luiz Felipe (Ganho de Peso)</h4>
+                    <h4>👨 Ele (Ganho de Peso)</h4>
                     <p><strong>Proteína:</strong> ${recipe.completeMenu.portions.husband.protein}</p>
                     <p><strong>Carboidrato:</strong> ${recipe.completeMenu.portions.husband.carbohydrate}</p>
                     <p><strong>Salada:</strong> ${recipe.completeMenu.portions.husband.salad}</p>
                     <p><strong>Calorias:</strong> ${recipe.husband.calories}</p>
                 </div>
                 <div class="portion-card">
-                    <h4>👩 Suellen (Perda de Peso)</h4>
+                    <h4>👩 Ela (Perda de Peso)</h4>
                     <p><strong>Proteína:</strong> ${recipe.completeMenu.portions.wife.protein}</p>
                     <p><strong>Carboidrato:</strong> ${recipe.completeMenu.portions.wife.carbohydrate}</p>
                     <p><strong>Salada:</strong> ${recipe.completeMenu.portions.wife.salad}</p>
@@ -1022,12 +1022,12 @@ function showRecipeModal(recipeId) {
             
             <div class="portions-section">
                 <div class="portion-card">
-                    <h4>👨 Luiz Felipe (Ganho de Peso)</h4>
+                    <h4>👨 Ele (Ganho de Peso)</h4>
                     <p><strong>Porção:</strong> ${recipe.husband.portion}</p>
                     <p><strong>Calorias:</strong> ${recipe.husband.calories}</p>
                 </div>
                 <div class="portion-card">
-                    <h4>👩 Suellen (Perda de Peso)</h4>
+                    <h4>👩 Ela (Perda de Peso)</h4>
                     <p><strong>Porção:</strong> ${recipe.wife.portion}</p>
                     <p><strong>Calorias:</strong> ${recipe.wife.calories}</p>
                 </div>
