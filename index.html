@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugestões de Receitas - Casal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍽️ Sugestões de Receitas para o Casal</h1>
+            <p>Cardápio personalizado com porções específicas para ganho e perda de peso</p>
+        </div>
+
+        <div class="meal-selector">
+            <button class="meal-btn active" data-meal="breakfast">☀️ Café da Manhã</button>
+            <button class="meal-btn" data-meal="morning-snack">🥨 Lanche Manhã</button>
+            <button class="meal-btn" data-meal="lunch">🍽️ Almoço</button>
+            <button class="meal-btn" data-meal="afternoon-snack">🥪 Lanche Tarde</button>
+            <button class="meal-btn" data-meal="dinner">🌙 Jantar</button>
+        </div>
+
+        <div class="recipes-container">
+            <div id="breakfast-recipes" class="meal-recipes active">
+                <h3>☀️ Opções de Café da Manhã</h3>
+                <div class="recipe-grid">
+                    <div class="recipe-card" data-recipe="breakfast-1">
+                        <h4>Pão Integral com Ovos Mexidos</h4>
+                        <p class="recipe-preview">Clássico nutritivo e energético</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="breakfast-2">
+                        <h4>Panqueca de Aveia com Banana</h4>
+                        <p class="recipe-preview">Rica em fibras e potássio</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="breakfast-3">
+                        <h4>Vitamina Proteica de Frutas</h4>
+                        <p class="recipe-preview">Refrescante e nutritiva</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="breakfast-4">
+                        <h4>Tapioca com Queijo e Ovo</h4>
+                        <p class="recipe-preview">Sem glúten e deliciosa</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="breakfast-5">
+                        <h4>Mingau de Aveia com Frutas</h4>
+                        <p class="recipe-preview">Cremoso e reconfortante</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="breakfast-6">
+                        <h4>Omelete de Claras com Vegetais</h4>
+                        <p class="recipe-preview">Leve e rica em proteínas</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="morning-snack-recipes" class="meal-recipes">
+                <h3>🥨 Opções de Lanche da Manhã</h3>
+                <div class="recipe-grid">
+                    <div class="recipe-card" data-recipe="morning-1">
+                        <h4>Iogurte com Granola Caseira</h4>
+                        <p class="recipe-preview">Probióticos e fibras</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="morning-2">
+                        <h4>Mix de Castanhas e Frutas</h4>
+                        <p class="recipe-preview">Gorduras boas e vitaminas</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="morning-3">
+                        <h4>Smoothie Verde Detox</h4>
+                        <p class="recipe-preview">Antioxidantes naturais</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="morning-4">
+                        <h4>Torrada Integral com Abacate</h4>
+                        <p class="recipe-preview">Gorduras saudáveis</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="morning-5">
+                        <h4>Vitamina de Banana com Aveia</h4>
+                        <p class="recipe-preview">Energia duradoura</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="morning-6">
+                        <h4>Queijo Cottage com Mel</h4>
+                        <p class="recipe-preview">Proteína e doçura natural</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lunch-recipes" class="meal-recipes">
+                <h3>🍽️ Almoço</h3>
+                <div class="protein-selector">
+                    <h4>1. Escolha a proteína:</h4>
+                    <div class="protein-icons" id="lunch-protein-icons">
+                        <div class="protein-icon-option" data-protein="carne-bovina">
+                            <span class="protein-emoji">🥩</span>
+                            <span class="protein-label">Carne Bovina</span>
+                        </div>
+                        <div class="protein-icon-option" data-protein="carne-moida">
+                            <span class="protein-emoji">🍖</span>
+                            <span class="protein-label">Carne Moída</span>
+                        </div>
+                        <div class="protein-icon-option" data-protein="file-tilapia">
+                            <span class="protein-emoji">🐟</span>
+                            <span class="protein-label">Filé de Tilápia</span>
+                        </div>
+                        <div class="protein-icon-option" data-protein="posta-tilapia">
+                            <span class="protein-emoji">🍣</span>
+                            <span class="protein-label">Posta de Tilápia</span>
+                        </div>
+                        <div class="protein-icon-option" data-protein="peito-frango">
+                        <span class="protein-emoji">🐔</span>
+                        <span class="protein-label">Peito de Frango</span>
+                    </div>
+                </div>
+                    
+                    <div id="cooking-method-lunch" class="hidden">
+                        <h4>2. Método de preparo:</h4>
+                        <div class="cooking-options">
+                            <label><input type="radio" name="lunch-cooking" value="frito"> 🍳 Frito/Grelhado</label>
+                            <label><input type="radio" name="lunch-cooking" value="assado"> 🔥 Assado</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="lunch-suggestions" class="recipe-suggestions hidden">
+                    <h4>3. Escolha sua receita:</h4>
+                    <div class="recipe-grid" id="lunch-recipe-grid">
+                        <!-- Receitas serão inseridas dinamicamente -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="afternoon-snack-recipes" class="meal-recipes">
+                <h3>🥪 Opções de Lanche da Tarde</h3>
+                <div class="recipe-grid">
+                    <div class="recipe-card" data-recipe="afternoon-1">
+                        <h4>Chá Verde com Castanhas</h4>
+                        <p class="recipe-preview">Antioxidantes e energia</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="afternoon-2">
+                        <h4>Frutas com Pasta de Amendoim</h4>
+                        <p class="recipe-preview">Doce natural e proteína</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="afternoon-3">
+                        <h4>Iogurte Grego com Mel</h4>
+                        <p class="recipe-preview">Cremoso e probiótico</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="afternoon-4">
+                        <h4>Sanduíche Natural Light</h4>
+                        <p class="recipe-preview">Leve e saboroso</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="afternoon-5">
+                        <h4>Vitamina de Frutas Vermelhas</h4>
+                        <p class="recipe-preview">Antioxidantes poderosos</p>
+                    </div>
+                    <div class="recipe-card" data-recipe="afternoon-6">
+                        <h4>Mix de Sementes e Frutas Secas</h4>
+                        <p class="recipe-preview">Minerais e energia</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dinner-recipes" class="meal-recipes">
+                <h3>🌙 Jantar</h3>
+                <div class="protein-selector">
+                    <h4>1. Escolha a proteína:</h4>
+                    <div class="protein-icons" id="dinner-protein-icons">
+                        <div class="protein-icon-option" data-protein="carne-bovina">
+                            <span class="protein-emoji">🥩</span>
+                            <span class="protein-label">Carne Bovina</span>
+                        </div>
+                        <div class="protein-icon-option" data-protein="carne-moida">
+                            <span class="protein-emoji">🍖</span>
+                            <span class="protein-label">Carne Moída</span>
+                        </div>
+                        <div class="protein-icon-option" data-protein="file-tilapia">
+                            <span class="protein-emoji">🐟</span>
+                            <span class="protein-label">Filé de Tilápia</span>
+                        </div>
+                        <div class="protein-icon-option" data-protein="posta-tilapia">
+                            <span class="protein-emoji">🍣</span>
+                            <span class="protein-label">Posta de Tilápia</span>
+                        </div>
+                        <div class="protein-icon-option" data-protein="peito-frango">
+                        <span class="protein-emoji">🐔</span>
+                        <span class="protein-label">Peito de Frango</span>
+                    </div>
+                </div>
+                
+                <div id="cooking-method-dinner" class="hidden">
+                        <h4>2. Método de preparo:</h4>
+                        <div class="cooking-options">
+                            <label><input type="radio" name="dinner-cooking" value="frito"> 🍳 Frito/Grelhado</label>
+                            <label><input type="radio" name="dinner-cooking" value="assado"> 🔥 Assado</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="dinner-suggestions" class="recipe-suggestions hidden">
+                    <h4>3. Escolha sua receita:</h4>
+                    <div class="recipe-grid" id="dinner-recipe-grid">
+                        <!-- Receitas serão inseridas dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="recipe-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div id="recipe-details"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

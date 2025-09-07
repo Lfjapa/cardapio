@@ -1,0 +1,694 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f6e05e 0%, #68d391 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(246, 224, 94, 0.2);
+    text-align: center;
+    border: 2px solid rgba(246, 224, 94, 0.3);
+}
+
+header h1 {
+    color: #2E7D32;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.profiles {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.profile {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    flex: 1;
+}
+
+.profile h3 {
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.profile p {
+    color: #4a5568;
+    margin: 5px 0;
+}
+
+.meal-selector {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.meal-selector h2 {
+    color: #4a5568;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.meal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meal-btn {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border: 2px solid #e2e8f0;
+    padding: 15px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #555;
+    font-size: 16px;
+    min-width: 160px;
+}
+
+.meal-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(246, 224, 94, 0.3);
+    background: linear-gradient(145deg, #fffbeb, #fef5e7);
+    border-color: #f6e05e;
+}
+
+.meal-btn.active {
+    background: linear-gradient(145deg, #f6e05e, #ecc94b);
+    color: #2d3748;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(246, 224, 94, 0.4);
+    border-color: #d69e2e;
+}
+
+.recipes-container {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.meal-recipes {
+    display: none;
+}
+
+.meal-recipes.active {
+    display: block;
+}
+
+.meal-recipes h3 {
+    color: #2d3748;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    text-align: center;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 15px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.recipe-card {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 12px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.recipe-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.recipe-card:hover::before {
+    left: 100%;
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px);
+    border-color: #667eea;
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+}
+
+.recipe-card h4 {
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.recipe-preview {
+    color: #718096;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.meal-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.person-meal {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #48bb78;
+}
+
+.person-meal h4 {
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.person-meal p {
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.protein-selector {
+    background: #edf2f7;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 4px solid #667eea;
+}
+
+.protein-selector h4 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.protein-selector select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.protein-selector select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.protein-selector label {
+    display: block;
+    margin: 12px 0;
+    color: #4a5568;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.protein-selector label:hover {
+    color: #2d3748;
+}
+
+.protein-selector input[type="radio"],
+.protein-selector input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.1);
+}
+
+.cooking-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.cooking-options label {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.cooking-options label:hover {
+    border-color: #cbd5e0;
+    transform: translateY(-2px);
+}
+
+.cooking-options input[type="radio"]:checked + label,
+.cooking-options label:has(input[type="radio"]:checked) {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.recipe-suggestions {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.recipe-suggestions h4 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.generate-btn {
+    background: #48bb78;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.generate-btn:hover {
+    background: #38a169;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+}
+
+.meal-result {
+    border-top: 2px solid #e2e8f0;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.recipe-section {
+    background: #f0fff4;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #48bb78;
+    margin-top: 20px;
+}
+
+.recipe-section h4 {
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.recipe-section p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.recipe-section ol {
+    color: #4a5568;
+    padding-left: 20px;
+}
+
+.recipe-section li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+    margin: 20px;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #718096;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #e53e3e;
+}
+
+.recipe-details h3 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.portions-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.portion-card {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #48bb78;
+}
+
+.portion-card h4 {
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.ingredients {
+    background: #fffaf0;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #ed8936;
+}
+
+.ingredients h5 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.ingredients ul {
+    color: #4a5568;
+    padding-left: 20px;
+}
+
+.ingredients li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.instructions {
+    background: #f0fff4;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #48bb78;
+}
+
+.instructions h5 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.instructions ol {
+    color: #4a5568;
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.tips {
+    background: #ebf8ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #3182ce;
+}
+
+.tips p {
+    color: #2d3748;
+    margin: 0 0 10px 0;
+    font-style: italic;
+}
+
+.complete-menu {
+    margin: 25px 0;
+}
+
+.menu-component {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.menu-component h4 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-component > p {
+    color: #4a5568;
+    font-weight: 600;
+    margin-bottom: 15px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.menu-component .ingredients,
+.menu-component .instructions {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.menu-component .ingredients {
+    border-left: 3px solid #ed8936;
+}
+
+.menu-component .instructions {
+    border-left: 3px solid #48bb78;
+}
+
+.menu-component h5 {
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.menu-component ul,
+.menu-component ol {
+    color: #4a5568;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.menu-component li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .profiles {
+        flex-direction: column;
+    }
+    
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .meal-buttons {
+        gap: 5px;
+    }
+    
+    .meal-btn {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .portions-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 10px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .meal-btn {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+    
+    .recipe-card {
+        padding: 20px;
+    }
+    
+    header {
+        padding: 20px;
+    }
+    
+    .meal-recipes h3 {
+        font-size: 1.5em;
+    }
+}
+
+/* Estilos para ícones de proteína */
+.protein-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.protein-icon-option {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.protein-icon-option:hover {
+    border-color: #f6e05e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(246, 224, 94, 0.3);
+    background: #fffbeb;
+}
+
+.protein-icon-option.selected {
+    border-color: #f6e05e;
+    background: #fffbeb;
+    box-shadow: 0 0 0 3px rgba(246, 224, 94, 0.3);
+    transform: translateY(-2px);
+}
+
+.protein-emoji {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.protein-label {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Responsividade para ícones */
+@media (max-width: 768px) {
+    .protein-icons {
+        gap: 10px;
+    }
+    
+    .protein-icon-option {
+        min-width: 100px;
+        padding: 12px;
+    }
+    
+    .protein-emoji {
+        font-size: 2rem;
+    }
+}
