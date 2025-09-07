@@ -5,8 +5,8 @@ Sistema de cardápio personalizado para você e sua esposa, com foco em objetivo
 ## 📋 Características
 
 ### Objetivos Nutricionais
-- **Você (1,85m / 60kg / 27 anos)**: Ganho de peso e massa muscular
-- **Esposa (1,65m / 66kg / 27 anos)**: Perda de peso saudável
+- **Ele **: Ganho de peso e massa muscular
+- *Ela **: Perda de peso saudável
 
 ### Funcionalidades
 - ✅ Cardápio semanal completo (7 dias)
